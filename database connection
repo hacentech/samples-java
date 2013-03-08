@@ -9,7 +9,7 @@ public class Connection {
 	 private static final String CONNECTION ="jdbc:mysql://localhost/esi";
 	 private static java.sql.Connection connexion;
 
-	 String connect() throws ClassNotFoundException,SQLException
+	 boolean connect() throws ClassNotFoundException,SQLException
 	 {
 		 
 		 try
@@ -17,13 +17,13 @@ public class Connection {
 				Class.forName(dbClassName);	
 				connexion=DriverManager.getConnection(CONNECTION,"root","root");
 				System.err.println("connexion réussie");
-				return "OooK  :) ";
+				return true;
 			}
 
 			catch (Exception e) 
 			{	e.printStackTrace();
 				System.err.println("ERROR :"+e.getMessage());
-				return "NO :(";
+				return false;
 			}
 	 }
 	 
